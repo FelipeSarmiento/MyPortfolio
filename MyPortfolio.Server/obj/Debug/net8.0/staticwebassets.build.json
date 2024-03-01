@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "1pW/EvRoRORI/k82596ediCn8Xd9DAuaYYPljUBup/0=",
+  "Source": "MyPortfolio.Server",
+  "BasePath": "_content/MyPortfolio.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\myportfolio.client\\myportfolio.client.esproj",
+      "Version": 2,
+      "Source": "myportfolio.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
