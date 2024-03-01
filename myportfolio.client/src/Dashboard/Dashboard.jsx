@@ -12,10 +12,6 @@ export function Dashboard() {
         getItemsDashboard();
     }, []);
 
-    useEffect(() => {
-        console.log(itemsDashboard)
-    }, [itemsDashboard]);
-
     async function saveItemsDashboard(bodySet) {
         console.log(bodySet)
         bodySet = JSON.stringify(bodySet).replaceAll('"', "'");
@@ -56,6 +52,25 @@ export function Dashboard() {
         setItemsDashboard(modify(itemsDashboard));
         setUnSaved(true)
     };
+
+    const addSection = (section) => {
+        console.log(section)
+        const newSection = {
+            id: section.id,
+            type: section.type,
+            label: section.label,
+            items: section.items,
+            settings: section.settings,
+            value: section.value,
+        };
+        setItemsDashboard({
+            ...itemsDashboard,
+            sections: [
+                ...itemsDashboard.sections,
+                newSection
+            ]
+        });
+    }
     function classNames(classes) {
         classes.className = ""
         const elements = Object.entries(classes).map(([key, value]) => {
@@ -102,7 +117,7 @@ export function Dashboard() {
                                 </div>
                                 <section aria-labelledby="products-heading" className="h-[56vh] pt-6">
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5 h-full">
-                                        <DropMenu items={itemsDashboard} title="Tree View" type="tree-view" functions={onSelectItem}/>
+                                        <DropMenu items={itemsDashboard} title="Tree View" type="tree-view" functions={onSelectItem} addSection={addSection}/>
                                         <div className="lg:col-span-3 border-dotted border-2 rounded-md border-indigo-700 bg-gray-900 h-[60vh] overflow-auto opacity-75 shrink-0 overflow-x-hidden">
                                             <DashboardPreview components={itemsDashboard}/>
                                         </div>
