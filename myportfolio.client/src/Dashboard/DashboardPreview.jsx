@@ -7,14 +7,15 @@ export const DashboardPreview = ({components}) => {
         <>
             {
                 components.sections.map((component, index) => {
-
-                    switch (component.type) {
-                        case "nav-bar":
-                            return <NavBarPreview key={index * component.id} items={ component }/>
-                        case "main-content":
-                            return <IndexPage key={index * component.id}/>
-                        default:
-                            return <div key={index}>Component not found</div>
+                    if (component !== undefined ) {
+                        switch (component.type) {
+                            case "nav-bar":
+                                return <NavBarPreview key={component.idUniqueIdentifier} items={ component }/>
+                            case "main-content":
+                                return <IndexPage key={component.idUniqueIdentifier}/>
+                            default:
+                                return <div key={component.idUniqueIdentifier}>Component not found</div>
+                        }
                     }
 
                 })

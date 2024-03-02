@@ -4,14 +4,14 @@ import {Menu, Options} from "./subComponents"
 import {useEffect, useState} from "react";
 import {PopUpMain} from "@/Dashboard/components/subComponents/components/PopUpMain.jsx";
 
-export const DropMenu = ({items, title, type, functions, modifyItemsDashboard, addSection}) => {
+export const DropMenu = ({items, title, type, functions, modifyItemsDashboard, addSection, deleteItemDashboard}) => {
     useEffect(() => {
         setItemsPrimary(items)
     }, [items]);
     const [itemsPrimary, setItemsPrimary] = useState(items ?? undefined)
     return (
         <>
-            <div className="hidden lg:block h-[60vh] overflow-y-auto">
+            <div className="hidden lg:block h-[60vh] overflow-auto pr-2">
                 <h3 className="sr-only">{title}</h3>
                 <ul role="list"
                     className="space-y-4 border-b border-gray-200 pb-3 text-sm font-medium text-white">
@@ -21,7 +21,7 @@ export const DropMenu = ({items, title, type, functions, modifyItemsDashboard, a
 
                 </ul>
                 {
-                    type === 'options' ? <Options options={itemsPrimary} modifyItemsDashboard={modifyItemsDashboard}/> : <Menu items={itemsPrimary.sections} functions={functions}/>
+                    type === 'options' ? <Options options={itemsPrimary} modifyItemsDashboard={modifyItemsDashboard}/> : <Menu deleteItemDashboard={deleteItemDashboard} items={itemsPrimary.sections} functions={functions}/>
                 }
 
             </div>
