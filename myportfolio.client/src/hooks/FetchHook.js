@@ -5,3 +5,7 @@
 
     return data;
 }
+
+const juanes = () => {
+  console.log('juanes')
+}

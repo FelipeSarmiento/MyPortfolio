@@ -11,7 +11,7 @@ export const DashboardPreview = ({components}) => {
                         switch (component.type) {
                             case "nav-bar":
                                 return <NavBarPreview key={component.idUniqueIdentifier} items={ component }/>
-                            case "main-content":
+                            case "content":
                                 return <IndexPage key={component.idUniqueIdentifier}/>
                             default:
                                 return <div key={component.idUniqueIdentifier}>Component not found</div>

@@ -19,6 +19,7 @@
     "@heroicons/react": "^2.1.1",
     "animate.css": "^4.1.1",
     "flowbite-react": "^0.7.2",
+    "keep-react": "^1.1.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",

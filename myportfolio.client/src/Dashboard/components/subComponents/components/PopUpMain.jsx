@@ -2,10 +2,19 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useRef, useState} from "react";
 import {Carousel} from "flowbite-react";
+import { Tabs } from "keep-react";
 
 export const PopUpMain = ({title, components, addSection}) => {
 
-
+    const items = [
+        {section: "nav-bar", type: "header", items: ["title", "link", "link", "link"]},
+        {section: "content", type: "content", items: ["image", "text", "text"]},
+        {section: "image", type: "content", items: ["image", "text"]},
+        {section: "text", type: "content", items: ["text", "text"]},
+        {section: "list", type: "content", items: ["text", "image", "text"]},
+        {section: "divider", type: "content", items: ["text", "list"]},
+        {section: "button", type: "content", items: ["carousel", "text"]}
+    ]
     const buildSection = (section, items) => {
 
         let settings = {
@@ -87,7 +96,7 @@ export const PopUpMain = ({title, components, addSection}) => {
             id: Math.random().toString(36).substring(7),
             idUniqueIdentifier: Math.random().toString(36).substring(7) + section,
             type: section,
-            label: section.split('-')[0].charAt(0).toUpperCase() + section.split('-')[0].slice(1) + ' ' + section.split('-')[1].charAt(0).toUpperCase() + section.split('-')[1].slice(1),
+            label: section.includes('-') ? section.split('-').join(' ').toUpperCase()[0] + section.split('-').join(' ').slice(1) : section.toUpperCase()[0] + section.slice(1),
             items: newItems,
             settings: {
                 ...settings,
@@ -120,9 +129,9 @@ export const PopUpMain = ({title, components, addSection}) => {
             <Popup className="animate__animated animate__pulse" ref={ref} trigger={<button><FontAwesomeIcon icon="fa-solid fa-plus"/></button>} arrow={false}
                    position="center center" title={title}>
                 <div
-                    className="fixed flex left-2/4 -translate-x-2/4 top-2/4 -translate-y-2/4 h-screen bg-gray-800/90 w-screen  z-50 justify-center items-center">
+                    className="fixed flex left-2/4 -translate-x-2/4 top-2/4 -translate-y-2/4 h-screen bg-gray-800/70 w-screen  z-50 justify-center items-center">
                     <div
-                        className="relative flex bg-gray-800 border-2 rounded-md border-gray-700 w-[90vw] h-[80vh] overflow-y-auto">
+                        className="relative flex bg-gray-900 border-2 rounded-md border-indigo-800 w-[90vw] h-[80vh] overflow-y-auto">
                         <button className="absolute right-6 top-3 text-white text-2xl" onClick={() => {
                             ref.current.close()
                         }} title={title} >
@@ -130,158 +139,68 @@ export const PopUpMain = ({title, components, addSection}) => {
                         </button>
                         <header className="w-full text-center justify-center py-4">
                             <h1 className="text-3xl font-bold tracking-tight text-white my-2">{ title }</h1>
-                            <section className="grid grid-cols-4 gap-4 place-items-center text-white w-full p-4">
-                                <div
-                                    onClick={() => {
-                                        buildSection("nav-bar", ['title', 'link', 'link', 'link'])
-                                        ref.current.close()
-                                    }}
-                                    className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md overflow-hidden">
-                                        <div className="flex items-center justify-center h-[20%]  bg-gray-500 ">
+                            <Tabs className="justify-center gap-x-3 text-gray-500 font-bold" aria-label="Tabs" style="pills">
+                                <Tabs.Item active={true} title="Sections">
+                                    <section className="grid grid-cols-5 gap-4 place-items-center text-white w-full p-4">
+                                        {items.map((item, index) => {
+                                            return (
+                                                <div
+                                                    onClick={() => {
+                                                        buildSection(item.section, item.items)
+                                                        ref.current.close()
+                                                    }}
+                                                    key={index}
+                                                    className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[200px] w-[300px]">
+                                                    <div className="h-3/4 w-3/4 border-2 border-gray-500 rounded-md overflow-hidden">
+                                                        <div className={(item.type === "header" ? "bg-gray-500" : " ") + " flex items-center justify-center h-[20%]" }>
 
-                                        </div>
-                                        <div className="flex items-center justify-between h-[80%]]">
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                            <FontAwesomeIcon icon="fa-solid fa-align-justify" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-align-justify" />
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-align-justify" />
-                                            <FontAwesomeIcon icon="fa-solid fa-align-justify" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-align-justify" />
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                            <FontAwesomeIcon icon="fa-solid fa-align-justify" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                            <FontAwesomeIcon icon="fa-solid fa-align-justify" />
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                            <FontAwesomeIcon icon="fa-solid fa-image" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-around h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <Carousel className="text-xl" leftControl={<FontAwesomeIcon icon="fa-solid fa-chevron-left" />} rightControl={<FontAwesomeIcon icon="fa-solid fa-chevron-right" />} indicators={false}  slideInterval={3000}>
-                                                <p className="text-4xl leading-8">
-                                                    <FontAwesomeIcon icon="fa-solid fa-image" />
-                                                </p>
-                                                <p className="text-4xl leading-8">
-                                                    <FontAwesomeIcon icon="fa-solid fa-image" />
-                                                </p>
-                                            </Carousel>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-center h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <Carousel className="text-xl w-2/4 text-transparent" leftControl={<FontAwesomeIcon icon="fa-solid fa-chevron-left" />} rightControl={<FontAwesomeIcon icon="fa-solid fa-chevron-right" />} indicators={false}  slideInterval={3000}>
-                                                <p className="text-4xl leading-8 text-gray-800">
-                                                    <FontAwesomeIcon icon="fa-solid fa-image" />
-                                                </p>
-                                                <p className="text-4xl leading-8 text-gray-800">
-                                                    <FontAwesomeIcon icon="fa-solid fa-image" />
-                                                </p>
-                                            </Carousel>
-                                            <FontAwesomeIcon className="w-2/4" icon="fa-solid fa-align-justify" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-center h-[20%]">
-
-                                        </div>
-                                        <div className="flex items-center justify-evenly h-[80%] text-4xl text-gray-800 bg-gray-500">
-                                            <FontAwesomeIcon icon="fa-solid fa-list" />
-                                            <FontAwesomeIcon icon="fa-solid fa-list" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="rounded-md hover:border-indigo-700 flex items-center justify-center relative border-2 border-gray-500 h-[300px] w-[300px]">
-                                    <div className="h-2/4 w-3/4 border-2 border-gray-500 rounded-md ">
-                                        <div className="flex items-center justify-evenly h-[80%] text-4xl text-gray-800">
-                                        </div>
-                                        <div className="flex items-center justify-center h-[20%] bg-gray-500">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                                                        </div>
+                                                        <div className={(item.type === "content" ? "bg-gray-500" : " ") + " flex items-center justify-evenly text-4xl text-gray-800 h-[80%]"}>
+                                                            {
+                                                                item.type === "content" ? (
+                                                                    item.items.map((item, index) => {
+                                                                        switch (item) {
+                                                                            case 'image':
+                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-image" />
+                                                                            case 'text':
+                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-align-justify" />
+                                                                            case 'list':
+                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-list" />
+                                                                            case 'divider':
+                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-divide" />
+                                                                            case 'button':
+                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-arrow-right" />
+                                                                            case 'carousel':
+                                                                                return (
+                                                                                    <Carousel  key={index + item} className="text-xl w-1/4 text-transparent" leftControl={<FontAwesomeIcon icon="fa-solid fa-chevron-left" />} rightControl={<FontAwesomeIcon icon="fa-solid fa-chevron-right" />} indicators={false}  slideInterval={3000}>
+                                                                                        <p className="text-4xl leading-8 text-gray-800">
+                                                                                            <FontAwesomeIcon icon="fa-solid fa-image" />
+                                                                                        </p>
+                                                                                        <p className="text-4xl leading-8 text-gray-800">
+                                                                                            <FontAwesomeIcon icon="fa-solid fa-image" />
+                                                                                        </p>
+                                                                                    </Carousel>
+                                                                                )
+                                                                            default:
+                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-image" />;
+                                                                        }
+                                                                    })
+                                                                ) : ("")
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
+                                    </section>
+                                </Tabs.Item>
+                                <Tabs.Item title="Items">Dashboard content</Tabs.Item>
+                                <Tabs.Item title="Settings">Settings content</Tabs.Item>
+                                <Tabs.Item title="Contacts">Contacts content</Tabs.Item>
+                                <Tabs.Item disabled={true} title="Disabled">
+                                    Disabled content
+                                </Tabs.Item>
+                            </Tabs>
                         </header>
                     </div>
                 </div>

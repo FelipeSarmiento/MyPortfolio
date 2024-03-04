@@ -135,7 +135,7 @@ export function Dashboard() {
                                                   functions={onSelectItem} addSection={addSection}
                                                   deleteItemDashboard={deleteItemDashboard}/>
                                         <div
-                                            className="lg:col-span-3 border-dotted border-2 rounded-md border-indigo-700 bg-gray-900 h-[60vh] overflow-visible opacity-75 shrink-0 overflow-x-hidden">
+                                            className="lg:col-span-3 border-dotted border-2 rounded-md border-indigo-700 bg-gray-900 h-[60vh] overflow-visible shrink-0 overflow-x-hidden">
                                             <DashboardPreview components={itemsDashboard}/>
                                         </div>
                                         <DropMenu items={optionItem} modifyItemsDashboard={modifyItemsDashboard}
