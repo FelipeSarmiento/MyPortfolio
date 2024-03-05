@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\MyPortfolio.Server\\MyPortfolio.Server.csproj": {}
+    "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio2\\MyPortfolio.Server\\MyPortfolio.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\MyPortfolio.Server\\MyPortfolio.Server.csproj": {
+    "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio2\\MyPortfolio.Server\\MyPortfolio.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\MyPortfolio.Server\\MyPortfolio.Server.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio2\\MyPortfolio.Server\\MyPortfolio.Server.csproj",
         "projectName": "MyPortfolio.Server",
-        "projectPath": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\MyPortfolio.Server\\MyPortfolio.Server.csproj",
+        "projectPath": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio2\\MyPortfolio.Server\\MyPortfolio.Server.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\MyPortfolio.Server\\obj\\",
+        "outputPath": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio2\\MyPortfolio.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",

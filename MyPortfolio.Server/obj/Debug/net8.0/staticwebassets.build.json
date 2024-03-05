@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "1pW/EvRoRORI/k82596ediCn8Xd9DAuaYYPljUBup/0=",
+  "Hash": "RNOMZwwG+iLhTaOlgrJCXuAB7A8BEulYfPf8UTRAgas=",
   "Source": "MyPortfolio.Server",
   "BasePath": "_content/MyPortfolio.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\myportfolio.client\\myportfolio.client.esproj",
+      "Identity": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio2\\myportfolio.client\\myportfolio.client.esproj",
       "Version": 2,
       "Source": "myportfolio.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

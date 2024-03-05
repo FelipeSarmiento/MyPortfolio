@@ -1,5 +1,5 @@
 @MyPortfolio.Server_HostAddress = http://localhost:5095
 
 GET {{MyPortfolio.Server_HostAddress}}/itemsDashboard/
-Accept: application/json
+Accept: *
 

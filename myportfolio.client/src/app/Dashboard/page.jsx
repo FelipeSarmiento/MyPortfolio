@@ -1,9 +1,11 @@
+'use client'
 import React, {useEffect, useState} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {DropMenu} from "@/Dashboard/components/DropMenu.jsx";
-import {DashboardPreview} from "@/Dashboard/DashboardPreview.jsx";
+import { faFloppyDisk  } from '@fortawesome/free-solid-svg-icons'
 
-export function Dashboard() {
+import {DropMenu} from "./components/DropMenu";
+import {DashboardPreview} from "./DashboardPreview.jsx";
+export default function Dashboard() {
     const [itemsDashboard, setItemsDashboard] = useState();
     const [optionItem, setOptionItem] = useState();
     const [unSaved, setUnSaved] = useState(false)
@@ -116,8 +118,9 @@ export function Dashboard() {
                     <h1 className="text-3xl font-bold tracking-tight text-white">Dashboard</h1>
                     <button onClick={() => saveItemsDashboard(itemsDashboard)}
                             className="text-white bg-gradient-to-r text-transparent from-indigo-700 to-purple-950 px-4 rounded-md bg-gray-800">
-                        Save &nbsp;<span className={unSaved ? 'text-red-500' : 'text-white'}><FontAwesomeIcon
-                        icon="fa-solid fa-floppy-disk"/></span>
+                        Save &nbsp;<span className={unSaved ? 'text-red-500' : 'text-white'}>
+                        <FontAwesomeIcon icon={faFloppyDisk} />
+                    </span>
                     </button>
                 </div>
             </header>
@@ -136,7 +139,7 @@ export function Dashboard() {
                                                   deleteItemDashboard={deleteItemDashboard}/>
                                         <div
                                             className="lg:col-span-3 border-dotted border-2 rounded-md border-indigo-700 bg-gray-900 h-[60vh] overflow-visible shrink-0 overflow-x-hidden">
-                                            <DashboardPreview components={itemsDashboard}/>
+                                            <DashboardPreview onSelectItem={onSelectItem} components={itemsDashboard}/>
                                         </div>
                                         <DropMenu items={optionItem} modifyItemsDashboard={modifyItemsDashboard}
                                                   title={optionItem !== undefined ? "Options for " + optionItem.label : "Options"}
@@ -153,7 +156,7 @@ export function Dashboard() {
 
     async function getItemsDashboard() {
         try {
-            const resp = await fetch('itemsDashboard');
+            const resp = await fetch('https://localhost:7054/itemsDashboard');
             const data = await resp.json();
             setItemsDashboard(data);
         } catch (error) {

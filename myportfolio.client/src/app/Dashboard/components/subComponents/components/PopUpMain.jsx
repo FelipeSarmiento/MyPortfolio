@@ -1,5 +1,7 @@
 ﻿import Popup from 'reactjs-popup';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faPlus, faXmark, faImage, faAlignJustify, faList, faChevronRight, faChevronLeft  } from '@fortawesome/free-solid-svg-icons'
+
 import {useRef, useState} from "react";
 import {Carousel} from "flowbite-react";
 import { Tabs } from "keep-react";
@@ -126,7 +128,7 @@ export const PopUpMain = ({title, components, addSection}) => {
     const ref = useRef();
     return (
         <>
-            <Popup className="animate__animated animate__pulse" ref={ref} trigger={<button><FontAwesomeIcon icon="fa-solid fa-plus"/></button>} arrow={false}
+            <Popup className="animate__animated animate__pulse" ref={ref} trigger={<button><FontAwesomeIcon icon={faPlus} /></button>} arrow={false}
                    position="center center" title={title}>
                 <div
                     className="fixed flex left-2/4 -translate-x-2/4 top-2/4 -translate-y-2/4 h-screen bg-gray-800/70 w-screen  z-50 justify-center items-center">
@@ -135,7 +137,7 @@ export const PopUpMain = ({title, components, addSection}) => {
                         <button className="absolute right-6 top-3 text-white text-2xl" onClick={() => {
                             ref.current.close()
                         }} title={title} >
-                            <FontAwesomeIcon icon="fa-solid fa-xmark"/>
+                            <FontAwesomeIcon icon={faXmark} />
                         </button>
                         <header className="w-full text-center justify-center py-4">
                             <h1 className="text-3xl font-bold tracking-tight text-white my-2">{ title }</h1>
@@ -161,28 +163,24 @@ export const PopUpMain = ({title, components, addSection}) => {
                                                                     item.items.map((item, index) => {
                                                                         switch (item) {
                                                                             case 'image':
-                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-image" />
+                                                                                return <FontAwesomeIcon key={index + item} icon={faImage} />
                                                                             case 'text':
-                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-align-justify" />
+                                                                                return <FontAwesomeIcon key={index + item} icon={faAlignJustify} />
                                                                             case 'list':
-                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-list" />
-                                                                            case 'divider':
-                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-divide" />
-                                                                            case 'button':
-                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-arrow-right" />
+                                                                                return <FontAwesomeIcon key={index + item} icon={faList} />
                                                                             case 'carousel':
                                                                                 return (
-                                                                                    <Carousel  key={index + item} className="text-xl w-1/4 text-transparent" leftControl={<FontAwesomeIcon icon="fa-solid fa-chevron-left" />} rightControl={<FontAwesomeIcon icon="fa-solid fa-chevron-right" />} indicators={false}  slideInterval={3000}>
+                                                                                    <Carousel  key={index + item} className="text-xl w-1/4 text-transparent" leftControl={<FontAwesomeIcon icon={faChevronLeft} />} rightControl={<FontAwesomeIcon icon={faChevronRight} />} indicators={false}  slideInterval={3000}>
                                                                                         <p className="text-4xl leading-8 text-gray-800">
-                                                                                            <FontAwesomeIcon icon="fa-solid fa-image" />
+                                                                                            <FontAwesomeIcon icon={faImage} />
                                                                                         </p>
                                                                                         <p className="text-4xl leading-8 text-gray-800">
-                                                                                            <FontAwesomeIcon icon="fa-solid fa-image" />
+                                                                                            <FontAwesomeIcon icon={faImage} />
                                                                                         </p>
                                                                                     </Carousel>
                                                                                 )
                                                                             default:
-                                                                                return <FontAwesomeIcon key={index + item} icon="fa-solid fa-image" />;
+                                                                                return <FontAwesomeIcon key={index + item} icon={faImage} />;
                                                                         }
                                                                     })
                                                                 ) : ("")

@@ -2,8 +2,7 @@ import {Fragment, useEffect, useState} from 'react'
 import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Link} from "react-router-dom";
-export function NavBarPreview({items}) {
+export function NavBarPreview({items, onSelectItem}) {
     // console.log(items)
     return <Disclosure as="nav"
                        className={ items.settings.className + "sticky top-0 z-10"}>
@@ -30,11 +29,15 @@ export function NavBarPreview({items}) {
                                     {items.items.map((item, index) => {
                                         switch (item.type) {
                                             case 'title':
-                                                return <p key={item.id + item.type + item.label}
+                                                return <p onClick={ () => {
+                                                    onSelectItem(item)
+                                                } } key={item.id + item.type + item.label}
                                                           className={item.settings.className}>{item.value}</p>
                                                 break
                                             case 'link':
-                                                return <p key={item.id + item.type + item.label}
+                                                return <p onClick={ () => {
+                                                    onSelectItem(item)
+                                                } } key={item.id + item.type + item.label}
                                                           className='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>{item.value}</p>
                                         }
                                     })}
@@ -52,8 +55,6 @@ export function NavBarPreview({items}) {
                                         <span className="absolute -inset-1.5"/>
                                         <span className="sr-only">Open user menu</span>
                                         <div>
-                                            <FontAwesomeIcon icon="fa-solid fa-right-to-bracket"
-                                                             className="text-sm px-1"/>
                                         </div>
                                         <span className="px-1 flex h-auto">Ingresar</span>
                                     </Menu.Button>
@@ -67,39 +68,6 @@ export function NavBarPreview({items}) {
                                     leaveFrom="transform opacity-100 scale-100"
                                     leaveTo="transform opacity-0 scale-95"
                                 >
-                                    <Menu.Items
-                                        className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                        <Menu.Item>
-                                            {({active}) => (
-                                                <a
-                                                    href="#"
-                                                    className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                >
-                                                    Your Profile
-                                                </a>
-                                            )}
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            {({active}) => (
-                                                <a
-                                                    href="#"
-                                                    className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                >
-                                                    Settings
-                                                </a>
-                                            )}
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            {({active}) => (
-                                                <a
-                                                    href="#"
-                                                    className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                >
-                                                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                                                </a>
-                                            )}
-                                        </Menu.Item>
-                                    </Menu.Items>
                                 </Transition>
                             </Menu>
                         </div>

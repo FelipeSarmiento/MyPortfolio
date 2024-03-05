@@ -1,6 +1,6 @@
 import {Carousel} from "flowbite-react";
 
-export function IndexPage() {
+export default function Home() {
     return (
         <div className="bg-gray-900 h-[calc(100vh_-_84px)]">
             <div className="mx-auto max-w-7xl py-12 sm:px-6 sm:py-16 lg:px-8">

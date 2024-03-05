@@ -2,7 +2,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Menu, Options} from "./subComponents"
 import {useEffect, useState} from "react";
-import {PopUpMain} from "@/Dashboard/components/subComponents/components/PopUpMain.jsx";
+import {PopUpMain} from "./subComponents/components/PopUpMain.jsx";
 
 export const DropMenu = ({items, title, type, functions, modifyItemsDashboard, addSection, deleteItemDashboard}) => {
     useEffect(() => {

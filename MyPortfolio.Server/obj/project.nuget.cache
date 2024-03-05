@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nOSv3bKCiyEW0kZYmefelXNB1klnfvMusxHHDiKN7FIRaWv8DSYXF43o7PPt9ab/e/RwiyhwrZ7zl1z33akMUQ==",
+  "dgSpecHash": "IphivJq4PSxuhIgJx2NyT0Uj0p6LN/ZAixxe4orQ/wCAspb2liXpnaJt9S8zsZKmK5+FbcJ9HPNJACN9VTSCFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio\\MyPortfolio.Server\\MyPortfolio.Server.csproj",
+  "projectFilePath": "C:\\Users\\felip\\OneDrive\\Escritorio\\MyPortfolio2\\MyPortfolio.Server\\MyPortfolio.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\felip\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\felip\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

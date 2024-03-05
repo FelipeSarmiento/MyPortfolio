@@ -1,7 +1,8 @@
 ﻿import {Disclosure} from "@headlessui/react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import DropDownMenu from "@/Dashboard/components/subComponents/components/DropDownMenu.jsx";
-import {PopUpMain} from "@/Dashboard/components/subComponents/components/PopUpMain.jsx";
+import { faChevronUp, faChevronDown, faTrash } from '@fortawesome/free-solid-svg-icons'
+import DropDownMenu from "./components/DropDownMenu.jsx";
+import {PopUpMain} from "./components/PopUpMain.jsx";
 
 export const Menu = ({items, functions, deleteItemDashboard}) => {
     const selectItem = (value) => {
@@ -24,9 +25,9 @@ export const Menu = ({items, functions, deleteItemDashboard}) => {
                                             <Disclosure.Button className="p-2 ml-1 hover:text-gray-500">
                                         <span className="flex items-center">
                                           {open ? (
-                                              <FontAwesomeIcon icon="fa-solid fa-chevron-up"/>
+                                              <FontAwesomeIcon icon={faChevronUp} />
                                           ) : (
-                                              <FontAwesomeIcon icon="fa-solid fa-chevron-down"/>
+                                              <FontAwesomeIcon icon={faChevronDown} />
                                           )}
                                         </span>
                                             </Disclosure.Button>
@@ -36,7 +37,7 @@ export const Menu = ({items, functions, deleteItemDashboard}) => {
                                         deleteItemDashboard(section.idUniqueIdentifier)
                                         selectItem(undefined)
                                     } } className="absolute top-2/4 -translate-y-2/4 -right-5 text-gray-500 hover:text-red-500">
-                                        <FontAwesomeIcon icon="fa-solid fa-trash" />
+                                        <FontAwesomeIcon icon={faTrash} />
                                     </button>
                                 </h3>
                                 <Disclosure.Panel className="">
@@ -62,7 +63,7 @@ export const Menu = ({items, functions, deleteItemDashboard}) => {
                                                         deleteItemDashboard(option.idUniqueIdentifier)
                                                         selectItem(undefined)
                                                     } } className="absolute top-2/4 -translate-y-2/4 right-2 text-gray-400 text-xs hover:text-red-500">
-                                                        <FontAwesomeIcon icon="fa-solid fa-trash" />
+                                                        <FontAwesomeIcon icon={faTrash} />
                                                     </button>
                                                 </Disclosure>
                                             </div>

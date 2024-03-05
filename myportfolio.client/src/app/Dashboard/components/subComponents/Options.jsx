@@ -1,7 +1,8 @@
 ﻿import {Disclosure} from "@headlessui/react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faChevronUp, faChevronDown, faTrash } from '@fortawesome/free-solid-svg-icons'
 import {useEffect, useState} from "react";
-import {PopUpMain} from "@/Dashboard/components/subComponents/components/PopUpMain.jsx";
+import {PopUpMain} from "./components/PopUpMain.jsx";
 import {Slider, TextInput} from "keep-react";
 
 export const Options = ({options, modifyItemsDashboard}) => {
@@ -189,9 +190,9 @@ export const Options = ({options, modifyItemsDashboard}) => {
                                                     <Disclosure.Button className="p-2 ml-1">
                                                             <span className="flex items-center">
                                                               {open ? (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-up"/>
+                                                                  <FontAwesomeIcon icon={faChevronUp} />
                                                               ) : (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-down"/>
+                                                                  <FontAwesomeIcon icon={faChevronDown} />
                                                               )}
                                                             </span>
                                                     </Disclosure.Button>
@@ -289,9 +290,9 @@ export const Options = ({options, modifyItemsDashboard}) => {
                                                     <Disclosure.Button className="p-2 ml-1">
                                                             <span className="flex items-center">
                                                               {open ? (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-up"/>
+                                                                  <FontAwesomeIcon icon={faChevronUp} />
                                                               ) : (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-down"/>
+                                                                  <FontAwesomeIcon icon={faChevronDown} />
                                                               )}
                                                             </span>
                                                     </Disclosure.Button>
@@ -308,7 +309,7 @@ export const Options = ({options, modifyItemsDashboard}) => {
                                                             {
                                                                 colors.map((color, index) => {
                                                                     return (<option key={index * Math.random()}
-                                                                                    className="focus:bg-red-500 focus:outline-none border-0 appearance-none border-transparent"
+                                                                                    className="focus:bg-red-500 focus:outline-none border-0 border-transparent"
                                                                                     value={color}>{color.charAt(0).toLocaleUpperCase() + color.slice(1)}</option>)
                                                                 })
                                                             }
@@ -365,9 +366,9 @@ export const Options = ({options, modifyItemsDashboard}) => {
                                                     <Disclosure.Button className="p-2 ml-1">
                                                             <span className="flex items-center">
                                                               {open ? (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-up"/>
+                                                                  <FontAwesomeIcon icon={faChevronUp} />
                                                               ) : (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-down"/>
+                                                                  <FontAwesomeIcon icon={faChevronDown} />
                                                               )}
                                                             </span>
                                                     </Disclosure.Button>
@@ -530,9 +531,9 @@ export const Options = ({options, modifyItemsDashboard}) => {
                                                     <Disclosure.Button className="p-2 ml-1">
                                                             <span className="flex items-center">
                                                               {open ? (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-up"/>
+                                                                  <FontAwesomeIcon icon={faChevronUp} />
                                                               ) : (
-                                                                  <FontAwesomeIcon icon="fa-solid fa-chevron-down"/>
+                                                                  <FontAwesomeIcon icon={faChevronDown} />
                                                               )}
                                                             </span>
                                                     </Disclosure.Button>

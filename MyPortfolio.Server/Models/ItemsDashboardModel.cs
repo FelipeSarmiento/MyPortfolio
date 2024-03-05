@@ -110,10 +110,10 @@ public class Items
 
 public class Section
 {
-    public string Id { get; set; }
+    public string? Id { get; set; }
     public string Type { get; set; }
     public string Label { get; set; }
-    public string Value { get; set; }
+    public string? Value { get; set; }
     public List<Items> Items { get; set; }
     public ItemSetting? Settings { get; set; }
     public string? IdUniqueIdentifier { get; set; }

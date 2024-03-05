@@ -152,6 +152,7 @@ public class ItemDashboardData
                     itemSetting.BorderBottom = reader["border_bottom"].ToString();
                 }
             }
+            conec.Close();
 
         }
 
@@ -181,6 +182,7 @@ public class ItemDashboardData
                     itemSettingColor.Intensity = reader["intensity"].ToString();
                 }
             }
+            conec.Close();
 
         }
 
@@ -219,6 +221,7 @@ public class ItemDashboardData
             {
                 success = true;
             }
+            conec.Close();
         }
 
         return new Tuple<ItemSettingColor, bool>(itemSettingColor, success);
@@ -237,6 +240,7 @@ public class ItemDashboardData
             {
                 success = true;
             }
+            conec.Close();
         }
 
         return new Tuple<ItemSetting, bool>(itemSetting, success);
@@ -255,6 +259,7 @@ public class ItemDashboardData
             {
                 success = true;
             }
+            conec.Close();
         }
 
         return new Tuple<Items, bool>(items, success);
@@ -277,6 +282,7 @@ public class ItemDashboardData
                 }
 
             }
+            conec.Close();
         }
 
         return new Tuple<Section, bool>(section, success);

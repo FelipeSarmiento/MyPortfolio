@@ -1,8 +1,10 @@
+'use client'
 import {Fragment} from 'react'
 import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Link} from "react-router-dom";
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 const navigation = [
     {name: '¿Como usar?', href: '/', current: false},
@@ -42,7 +44,7 @@ export function NavBar() {
                                         <a href="/"><p className="rounded-md py-2 text-lg bg-gradient-to-r bg-clip-text text-transparent from-indigo-700 to-purple-950 font-bold ">My
                                             Portfolio</p></a>
                                         {navigation.map((item) => (
-                                            <a
+                                            <Link
                                                 key={item.name}
                                                 className={classNames(
                                                     item.current ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -51,7 +53,7 @@ export function NavBar() {
                                                 aria-current={item.current ? 'page' : undefined}
                                                 href={item.href}>
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -67,7 +69,7 @@ export function NavBar() {
                                             <span className="absolute -inset-1.5"/>
                                             <span className="sr-only">Open user menu</span>
                                             <div>
-                                                <FontAwesomeIcon icon="fa-solid fa-right-to-bracket"
+                                                <FontAwesomeIcon icon={faRightToBracket}
                                                                  className="text-sm px-1"/>
                                             </div>
                                             <span className="px-1 flex h-auto">Ingresar</span>
